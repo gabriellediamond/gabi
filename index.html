@@ -1,47 +1,598 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">.
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chiquititas 💗 Um Mundo de Sonhos</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap');
+
+:root {
+  --rosa: #ff78ad;
+  --rosa-claro: #ffe3ef;
+  --lilas: #d9c6ff;
+  --roxo: #8563bd;
+  --creme: #fffaf5;
+  --texto: #59465f;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  color: var(--texto);
+  background: var(--creme);
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(255,250,245,.94);
+  backdrop-filter: blur(12px);
+  padding: 16px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 3px 18px #c99cb522;
+}
+
+.logo {
+  font: 700 26px 'Fredoka', sans-serif;
+  color: var(--rosa);
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  color: var(--texto);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+nav a:hover { color: var(--rosa); }
+
+.hero {
+  min-height: 85vh;
+  padding: 70px 8%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 35px;
+  flex-wrap: wrap;
+  background:
+    radial-gradient(circle at 85% 20%, #ffffffa8 0 7%, transparent 8%),
+    linear-gradient(135deg, #ffe2ed, #eee4ff 65%, #fff2d9);
+  overflow: hidden;
+}
+
+.hero-text {
+  flex: 1 1 320px;
+}
+
+.etiqueta {
+  display: inline-block;
+  background: white;
+  padding: 9px 17px;
+  border-radius: 30px;
+  color: var(--roxo);
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font: 700 clamp(42px, 6vw, 76px) 'Fredoka', sans-serif;
+  line-height: 1.08;
+  color: #a65493;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 18px;
+  line-height: 1.8;
+  max-width: 520px;
+}
+
+.botao {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 15px 25px;
+  border-radius: 30px;
+  background: var(--rosa);
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: .25s;
+  box-shadow: 0 8px 18px #ff78ad44;
+}
+
+.botao:hover {
+  transform: translateY(-4px);
+  background: #ee5594;
+}
+
+.ilustracao {
+  flex: 1 1 270px;
+  max-width: 430px;
+  margin: auto;
+  text-align: center;
+  padding: 45px 20px;
+  border-radius: 48% 48% 35% 35%;
+  background: #ffffff88;
+  border: 3px solid white;
+  box-shadow: 0 15px 50px #b993cc30;
+}
+
+.casinha {
+  font-size: clamp(90px, 15vw, 155px);
+  animation: flutuar 3s ease-in-out infinite;
+}
+
+.ilustracao h2 {
+  font: 600 26px 'Fredoka', sans-serif;
+  color: var(--roxo);
+  margin-top: 10px;
+}
+
+.ilustracao p { margin-top: 8px; }
+
+@keyframes flutuar {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+section {
+  padding: 75px 8%;
+}
+
+.titulo {
+  text-align: center;
+  font: 700 clamp(30px, 4vw, 43px) 'Fredoka', sans-serif;
+  color: #a65493;
+  margin-bottom: 12px;
+}
+
+.subtitulo {
+  text-align: center;
+  line-height: 1.7;
+  max-width: 650px;
+  margin: 0 auto 38px;
+}
+
+.historia {
+  background: white;
+}
+
+.linha-tempo {
+  max-width: 800px;
+  margin: auto;
+  border-left: 3px dashed #e9b4d8;
+  padding-left: 28px;
+}
+
+.evento {
+  position: relative;
+  background: #fff5fa;
+  padding: 23px;
+  margin-bottom: 22px;
+  border-radius: 18px;
+  transition: .25s;
+}
+
+.evento:hover {
+  transform: translateX(7px);
+  box-shadow: 0 8px 25px #dba6c522;
+}
+
+.evento::before {
+  content: "💗";
+  position: absolute;
+  left: -43px;
+  top: 20px;
+  font-size: 20px;
+}
+
+.evento h3 {
+  font: 600 22px 'Fredoka', sans-serif;
+  color: var(--roxo);
+  margin-bottom: 8px;
+}
+
+.evento p { line-height: 1.8; }
+
+.personagens {
+  background: linear-gradient(180deg, #fffaf5, #fff0f7);
+}
+
+.grade {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 22px;
+}
+
+.personagem {
+  border: 2px solid white;
+  background: white;
+  padding: 27px 18px;
+  border-radius: 25px;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 8px 25px #d5a7c21b;
+  transition: .3s;
+}
+
+.personagem:hover {
+  transform: translateY(-8px) rotate(-1deg);
+  box-shadow: 0 15px 30px #d5a7c244;
+}
+
+.avatar {
+  width: 95px;
+  height: 95px;
+  border-radius: 50%;
+  margin: 0 auto 15px;
+  display: grid;
+  place-items: center;
+  font-size: 47px;
+  background: var(--rosa-claro);
+}
+
+.personagem:nth-child(2n) .avatar { background: #eee4ff; }
+.personagem:nth-child(3n) .avatar { background: #fff0c9; }
+
+.personagem h3 {
+  font: 600 23px 'Fredoka', sans-serif;
+  color: #a65493;
+  margin-bottom: 8px;
+}
+
+.personagem p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.dica {
+  margin-top: 30px;
+  text-align: center;
+  color: var(--roxo);
+  font-weight: 700;
+}
+
+.curiosidades {
+  background: white;
+}
+
+.curiosidade {
+  padding: 25px;
+  border-radius: 20px;
+  background: #f5efff;
+}
+
+.curiosidade:nth-child(2n) { background: #fff0f6; }
+
+.curiosidade span {
+  font-size: 32px;
+}
+
+.curiosidade h3 {
+  font: 600 21px 'Fredoka', sans-serif;
+  margin: 12px 0 8px;
+  color: var(--roxo);
+}
+
+.curiosidade p { line-height: 1.7; }
+
+.musica {
+  text-align: center;
+  background: linear-gradient(135deg, #e9ddff, #ffe2ee);
+}
+
+.musica .nota {
+  font-size: 65px;
+  margin-bottom: 15px;
+}
+
+.musica p {
+  max-width: 600px;
+  margin: auto;
+  line-height: 1.8;
+}
+
+footer {
+  background: #73558f;
+  color: white;
+  text-align: center;
+  padding: 28px 15px;
+  line-height: 1.9;
+}
+
+footer strong {
+  font: 600 24px 'Fredoka', sans-serif;
+}
+
+dialog {
+  margin: auto;
+  width: min(90%, 430px);
+  border: none;
+  border-radius: 25px;
+  padding: 30px;
+  text-align: center;
+  color: var(--texto);
+  box-shadow: 0 20px 80px #3b214455;
+}
+
+dialog::backdrop { background: #3b214477; }
+
+#modal-emoji { font-size: 60px; }
+
+dialog h2 {
+  font: 700 30px 'Fredoka', sans-serif;
+  color: #a65493;
+  margin: 10px;
+}
+
+dialog p { line-height: 1.8; }
+
+.fechar {
+  margin-top: 18px;
+  padding: 12px 24px;
+  border: none;
+  background: var(--rosa);
+  color: white;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+@media (max-width: 650px) {
+  header { flex-direction: column; gap: 12px; }
+  nav { gap: 13px; flex-wrap: wrap; justify-content: center; }
+  nav a { font-size: 13px; }
+  .hero { text-align: center; padding: 55px 7%; }
+  .hero p { margin: auto; }
+  section { padding: 55px 7%; }
+}
+</style>
 </head>
-<body> 
-    <img class="gabi.." src="image.jpg">
-   <header>
-   <h1> chiquititas </h1>  
-   <p>Chiquititas gira em torno da rotina e dos dramas das crianças e adolescentes que moram no
-     Orfanato Raio de Luz. </p>
-     <p></p>A história é marcada pela busca por união, amor e identidade,
-      enquanto os órfãos enfrentam coisas do passado
-   </header>
-    <p>Em um período anterior à novela, exatos treze anos, sua filha Gabriela se apaixonou e ficou grávida de Miguel, 
-    filho de Valentina, empregada da casa dos Almeida Campos.
-    <p>Pouco depois, José Ricardo sequestrou sua neta, pois ele não aceitava que sua filha se envolvesse com um empregado. 
-     Como sua neta, Milena, apelidada como Mili, precisava de um lugar para morar, ele comprou um casarão
-     e fundou um orfanato, o Raio de Luz. Mili cresceu lá com outras garotas que chegaram posteriormente:
-     <P>Bia, Ana, as irmãs Tati e Vivi, e Cris. Ao decorrer dos anos, elas se tornam uma família.
-        
-        Elas são supervisionadas por Ernestina, a rígida zeladora do orfanato, e Chico, o cozinheiro amado pelas internas. 
-       <P></P>Sofia, ex-governanta da família Almeida Campos, é a diretora do lugar, até que ela fica muito doente e um dia acaba não
-       resistindo, e então Carmem, irmã de José Ricardo, entre em seu lugar.
 
-       <img src="pata-800x450.jpg">                                                                    
-   </p>Enquanto a diretora Carolina (Carol) era a figura materna das crianças, Chico era o porto seguro no dia a dia.
-   </p> Como cozinheiro do orfanato, ele não apenas alimentava os órfãos,
-    mas também alimentava a alma deles com conselhos, paciência e muito carinho.</p>
+<body>
 
-    <p></p>Sempre com seu avental e um sorriso bondoso, Chico defendia as crianças das injustiças e das armações das vilãs da história.
- <P></P>Em Chiquititas, a grande revelação acontece quando a verdade sobre o passado vem à tona:
- <P></P> Mili (Milena) descobre que é a verdadeira filha biológica de Gabriela (Gabi) e Miguel
- <P></P> O pai de Gabi, Dr. José Ricardo, escondeu a neta no orfanato logo após o nascimento. 
- <footer>
-    <a href="https://www.youtube.com/watch?v=LUv2iI_ZuoU&list=RDLUv2iI_ZuoU&start_radio=1"clipe de chiquititas></a>
+<header>
+  <div class="logo">🎀 Chiquititas</div>
+  <nav>
+    <a href="#inicio">Início</a>
+    <a href="#historia">História</a>
+    <a href="#personagens">Personagens</a>
+    <a href="#curiosidades">Curiosidades</a>
+  </nav>
+</header>
 
+<main>
+<section class="hero" id="inicio">
+  <div class="hero-text">
+    <span class="etiqueta">🌸 Um clássico cheio de amor</span>
+    <h1>Um mundo de sonhos e amizade!</h1>
+    <p>
+      Entre músicas, aventuras e muitas emoções, conheça o universo
+      de Chiquititas, uma história sobre amizade, esperança, família
+      e o poder de nunca deixar de sonhar.
+    </p>
+    <a href="#historia" class="botao">✨ Conheça essa história</a>
+  </div>
+
+  <div class="ilustracao">
+    <div class="casinha">🏡</div>
+    <h2>Orfanato Raio de Luz</h2>
+    <p>Onde cada coração encontra um lar. 💕</p>
+    <div style="font-size:27px;margin-top:15px">🌷 ⭐ 🦋 🌷</div>
+  </div>
+</section>
+
+<section class="historia" id="historia">
+  <h2 class="titulo">📖 A história de Chiquititas</h2>
+  <p class="subtitulo">
+    Uma jornada de amizade, descobertas e muita emoção que marcou gerações.
+  </p>
+
+  <div class="linha-tempo">
+    <article class="evento">
+      <h3>🏡 Um lar especial</h3>
+      <p>
+        No orfanato Raio de Luz, crianças com diferentes histórias
+        aprendem a conviver, dividir sonhos e construir laços de amizade.
+      </p>
+    </article>
+
+    <article class="evento">
+      <h3>💞 Amizades inesquecíveis</h3>
+      <p>
+        Mili e seus amigos enfrentam desafios, descobrem novas forças
+        e percebem que juntos podem superar momentos difíceis.
+      </p>
+    </article>
+
+    <article class="evento">
+      <h3>🎶 Música e alegria</h3>
+      <p>
+        As canções, brincadeiras e apresentações fazem parte do cotidiano
+        das crianças e ajudam a expressar seus sentimentos.
+      </p>
+    </article>
+
+    <article class="evento">
+      <h3>🌈 Nunca deixar de sonhar</h3>
+      <p>
+        A história mostra a importância do carinho, da solidariedade,
+        da esperança e de acreditar em um futuro melhor.
+      </p>
+    </article>
+  </div>
+</section>
+
+<section class="personagens" id="personagens">
+  <h2 class="titulo">💖 Nossos personagens</h2>
+  <p class="subtitulo">
+    Clique em cada personagem para descobrir um pouquinho mais!
+  </p>
+
+  <div class="grade">
+    <article class="personagem" tabindex="0"
+      role="button" data-nome="Mili" data-emoji="🌷"
+      data-info="Mili é uma das personagens centrais da história. Carinhosa, sensível e sonhadora, ela valoriza a amizade e está sempre aprendendo com as experiências da vida.">
+      <div class="avatar">🌷</div>
+      <h3>Mili</h3>
+      <p>Doce, inteligente e cheia de esperança.</p>
+    </article>
+
+    <article class="personagem" tabindex="0"
+      role="button" data-nome="Bia" data-emoji="🌟"
+      data-info="Bia tem uma personalidade forte e marcante. Ao longo da história, suas relações com os amigos mostram que todos podem amadurecer e aprender.">
+      <div class="avatar">🌟</div>
+      <h3>Bia</h3>
+      <p>Corajosa, determinada e marcante.</p>
+    </article>
+
+    <article class="personagem" tabindex="0"
+      role="button" data-nome="Tati" data-emoji="🦋"
+      data-info="Tati é uma menina que conquista as pessoas com sua espontaneidade. Sua presença acrescenta ternura e momentos especiais à convivência no orfanato.">
+      <div class="avatar">🦋</div>
+      <h3>Tati</h3>
+      <p>Espontânea, divertida e carinhosa.</p>
+    </article>
+
+    <article class="personagem" tabindex="0"
+      role="button" data-nome="Vivi" data-emoji="🌸"
+      data-info="Vivi é ligada à moda e à beleza, mas também vive experiências que mostram a importância da amizade, do respeito e da confiança.">
+      <div class="avatar">🌸</div>
+      <h3>Vivi</h3>
+      <p>Vaidosa, alegre e cheia de estilo.</p>
+    </article>
+
+    <article class="personagem" tabindex="0"
+      role="button" data-nome="Chico" data-emoji="🍰"
+      data-info="Chico faz parte do universo acolhedor do Raio de Luz. Sua presença ajuda a criar momentos de cuidado, afeto e convivência entre as crianças.">
+      <div class="avatar">🍰</div>
+      <h3>Chico</h3>
+      <p>Amigo e parte da família do orfanato.</p>
+    </article>
+
+    <article class="personagem" tabindex="0"
+      role="button" data-nome="Carol" data-emoji="💐"
+      data-info="Carol é uma figura importante na vida das crianças, oferecendo apoio, cuidado e carinho. Ela representa o valor de acolher e proteger quem precisa.">
+      <div class="avatar">💐</div>
+      <h3>Carol</h3>
+      <p>Amorosa, protetora e acolhedora.</p>
+    </article>
+  </div>
+
+  <p class="dica">💌 Dica: clique nos cartões para abrir as informações!</p>
+</section>
+
+<section class="curiosidades" id="curiosidades">
+  <h2 class="titulo">✨ Por que amamos Chiquititas?</h2>
+  <p class="subtitulo">
+    Muito mais do que uma novela, uma história cheia de mensagens especiais.
+  </p>
+
+  <div class="grade">
+    <article class="curiosidade">
+      <span>🤝</span>
+      <h3>Amizade verdadeira</h3>
+      <p>Os amigos mostram como o companheirismo pode ajudar nos momentos difíceis.</p>
+    </article>
+
+    <article class="curiosidade">
+      <span>🎵</span>
+      <h3>Músicas marcantes</h3>
+      <p>As canções são uma parte inesquecível do universo da novela.</p>
+    </article>
+
+    <article class="curiosidade">
+      <span>💗</span>
+      <h3>Amor e acolhimento</h3>
+      <p>A história destaca a importância de cuidar uns dos outros.</p>
+    </article>
+
+    <article class="curiosidade">
+      <span>🌈</span>
+      <h3>Esperança</h3>
+      <p>Mesmo diante dos desafios, os personagens continuam acreditando em dias melhores.</p>
+    </article>
+  </div>
+</section>
+
+<section class="musica">
+  <div class="nota">🎶</div>
+  <h2 class="titulo">A magia da música</h2>
+  <p>
+    As músicas fazem parte da identidade de Chiquititas e trazem
+    lembranças, alegria e emoção para os fãs.
+  </p>
+  <a class="botao"
+     href="https://www.youtube.com/results?search_query=Chiquititas+trilha+sonora"
+     target="_blank" rel="noopener noreferrer">
+    ▶ Explorar as músicas
+  </a>
+</section>
+</main>
+
+<footer>
+  <strong>🎀 Chiquititas</strong>
+  <p>Um mundo de amizade, amor e sonhos. 💗</p>
+  <p>Site de fã, criado com carinho.</p>
 </footer>
 
-</footer>
+<dialog id="modal">
+  <div id="modal-emoji">🌷</div>
+  <h2 id="modal-titulo">Personagem</h2>
+  <p id="modal-texto"></p>
+  <button class="fechar" id="fechar-modal">Fechar 💗</button>
+</dialog>
+
+<script>
+const modal = document.getElementById('modal');
+const titulo = document.getElementById('modal-titulo');
+const texto = document.getElementById('modal-texto');
+const emoji = document.getElementById('modal-emoji');
+
+function abrirPersonagem(cartao) {
+  titulo.textContent = cartao.dataset.nome;
+  texto.textContent = cartao.dataset.info;
+  emoji.textContent = cartao.dataset.emoji;
+  modal.showModal();
+}
+
+document.querySelectorAll('.personagem').forEach(cartao => {
+  cartao.addEventListener('click', () => abrirPersonagem(cartao));
+
+  cartao.addEventListener('keydown', evento => {
+    if (evento.key === 'Enter' || evento.key === ' ') {
+      evento.preventDefault();
+      abrirPersonagem(cartao);
+    }
+  });
+});
+
+document.getElementById('fechar-modal').addEventListener('click', () => {
+  modal.close();
+});
+
+modal.addEventListener('click', evento => {
+  if (evento.target === modal) modal.close();
+});
+</script>
+
 </body>
 </html>
-
-<img src="logotipo de chiquititas 2013 logo logomarca chiquititas 2013.png">
