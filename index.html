@@ -592,6 +592,262 @@ document.getElementById('fechar-modal').addEventListener('click', () => {
 modal.addEventListener('click', evento => {
   if (evento.target === modal) modal.close();
 });
+  
+<!-- JOGO CHIQUITITAS: cole tudo antes de </body> -->
+
+<style>
+.jogo-raio {
+  padding: 60px 7%;
+  text-align: center;
+  background: linear-gradient(135deg, #ffe3ef, #eee4ff, #fff2d9);
+  color: #59465f;
+  font-family: 'Quicksand', sans-serif;
+}
+.jogo-raio * { box-sizing: border-box; }
+.jogo-raio h2 {
+  font-family: 'Fredoka', sans-serif;
+  font-size: clamp(28px, 4vw, 42px);
+  color: #a65493;
+  margin-bottom: 12px;
+}
+.jogo-raio .jogo-caixa {
+  max-width: 650px;
+  margin: 30px auto 0;
+  padding: 28px;
+  background: white;
+  border: 3px solid #fff;
+  border-radius: 25px;
+  box-shadow: 0 12px 35px #b993cc30;
+}
+.jogo-raio .jogo-pontos {
+  color: #8563bd;
+  font-weight: bold;
+  margin-bottom: 22px;
+}
+.jogo-raio .jogo-pergunta {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 23px;
+  color: #a65493;
+  margin: 20px 0;
+}
+.jogo-raio .jogo-opcoes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.jogo-raio button {
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  border: 2px solid #e8d8f5;
+  border-radius: 15px;
+  padding: 13px;
+  background: #fff7fb;
+  color: #59465f;
+  transition: .2s;
+}
+.jogo-raio button:hover:not(:disabled) {
+  background: #ffe3ef;
+  transform: translateY(-2px);
+  border-color: #ff78ad;
+}
+.jogo-raio button:disabled { cursor: default; }
+.jogo-raio button.jogo-certa {
+  background: #dff7e5;
+  border-color: #65b87b;
+}
+.jogo-raio button.jogo-errada {
+  background: #ffe1e5;
+  border-color: #e77c8a;
+}
+.jogo-raio .jogo-principal {
+  background: #ff78ad;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 14px 25px;
+  margin-top: 20px;
+  box-shadow: 0 6px 15px #ff78ad44;
+}
+.jogo-raio .jogo-feedback {
+  min-height: 25px;
+  margin-top: 18px;
+  line-height: 1.6;
+  font-weight: bold;
+}
+.jogo-raio [hidden] { display: none !important; }
+@media(max-width: 500px) {
+  .jogo-raio .jogo-opcoes { grid-template-columns: 1fr; }
+  .jogo-raio .jogo-caixa { padding: 20px 15px; }
+}
+</style>
+
+<section class="jogo-raio" id="jogo-raio-de-luz">
+  <h2>🎮 Desafio do Raio de Luz</h2>
+  <p>💗 Teste seus conhecimentos sobre Chiquititas!</p>
+
+  <div class="jogo-caixa">
+    <div class="jogo-pontos">
+      ⭐ Pontos: <span id="jr-pontos">0</span>
+      &nbsp;|&nbsp;
+      Pergunta <span id="jr-numero">1</span>/6
+    </div>
+
+    <div id="jr-pergunta" class="jogo-pergunta">
+      Vamos brincar?
+    </div>
+
+    <div id="jr-opcoes" class="jogo-opcoes"></div>
+
+    <p id="jr-feedback" class="jogo-feedback" aria-live="polite">
+      Clique para começar sua aventura! 🌸
+    </p>
+
+    <button type="button" id="jr-iniciar" class="jogo-principal">
+      🎀 Começar jogo
+    </button>
+
+    <button type="button" id="jr-novamente"
+      class="jogo-principal" hidden>
+      🔄 Jogar novamente
+    </button>
+  </div>
+</section>
+
+<script>
+(function () {
+  const raiz = document.getElementById('jogo-raio-de-luz');
+  if (!raiz || raiz.dataset.iniciado) return;
+  raiz.dataset.iniciado = 'sim';
+
+  const perguntas = [
+    {
+      p: 'Como se chama o orfanato da história?',
+      o: ['Raio de Luz', 'Casa das Estrelas', 'Lar das Flores', 'Mundo Encantado'],
+      c: 0
+    },
+    {
+      p: 'Qual personagem é doce e sonhadora?',
+      o: ['Bia', 'Mili', 'Vivi', 'Tati'],
+      c: 1
+    },
+    {
+      p: 'O que faz parte da identidade de Chiquititas?',
+      o: ['Carros de corrida', 'Viagens espaciais', 'Músicas e brincadeiras', 'Jogos de futebol'],
+      c: 2
+    },
+    {
+      p: 'Qual valor é muito importante na história?',
+      o: ['Competição', 'Amizade', 'Vaidade', 'Rivalidade'],
+      c: 1
+    },
+    {
+      p: 'Qual personagem é ligada à moda e à beleza?',
+      o: ['Vivi', 'Chico', 'Carol', 'Mili'],
+      c: 0
+    },
+    {
+      p: 'O que os amigos aprendem a fazer juntos?',
+      o: ['Desistir', 'Brigar sempre', 'Superar dificuldades', 'Evitar amizades'],
+      c: 2
+    }
+  ];
+
+  const buscar = id => document.getElementById('jr-' + id);
+  let lista = [], atual = 0, pontos = 0, respondeu = false;
+
+  function iniciar() {
+    lista = perguntas.map((_, i) => i)
+      .sort(() => Math.random() - 0.5);
+    atual = 0;
+    pontos = 0;
+    buscar('pontos').textContent = pontos;
+    buscar('iniciar').hidden = true;
+    buscar('novamente').hidden = true;
+    mostrar();
+  }
+
+  function mostrar() {
+    respondeu = false;
+    const q = perguntas[lista[atual]];
+    buscar('numero').textContent = atual + 1;
+    buscar('pergunta').textContent = q.p;
+    buscar('feedback').textContent = 'Escolha uma resposta! 💕';
+
+    const opcoes = buscar('opcoes');
+    opcoes.replaceChildren();
+
+    q.o.forEach((texto, i) => {
+      const botao = document.createElement('button');
+      botao.type = 'button';
+      botao.textContent = texto;
+      botao.addEventListener('click', () => responder(i, botao));
+      opcoes.appendChild(botao);
+    });
+  }
+
+  function responder(escolha, clicado) {
+    if (respondeu) return;
+    respondeu = true;
+
+    const q = perguntas[lista[atual]];
+    const botoes = [...buscar('opcoes').querySelectorAll('button')];
+
+    botoes.forEach((b, i) => {
+      b.disabled = true;
+      if (i === q.c) b.classList.add('jogo-certa');
+    });
+
+    if (escolha === q.c) {
+      pontos++;
+      buscar('pontos').textContent = pontos;
+      buscar('feedback').textContent =
+        '🎉 Acertou! Você é uma estrela do Raio de Luz!';
+    } else {
+      clicado.classList.add('jogo-errada');
+      buscar('feedback').textContent =
+        '💗 A resposta certa era: ' + q.o[q.c];
+    }
+
+    const proximo = document.createElement('button');
+    proximo.type = 'button';
+    proximo.className = 'jogo-principal';
+    proximo.textContent = atual === perguntas.length - 1
+      ? '🏆 Ver resultado' : 'Próxima pergunta ➜';
+
+    proximo.addEventListener('click', () => {
+      atual++;
+      if (atual < perguntas.length) {
+        mostrar();
+      } else {
+        finalizar();
+      }
+    });
+
+    buscar('opcoes').appendChild(proximo);
+  }
+
+  function finalizar() {
+    buscar('numero').textContent = perguntas.length;
+    buscar('pergunta').textContent =
+      pontos === 6 ? '🏆 Você é fã de carteirinha!' :
+      pontos >= 4 ? '🌟 Você arrasou no desafio!' :
+      '🌈 Continue tentando!';
+
+    buscar('opcoes').replaceChildren();
+    buscar('feedback').textContent =
+      'Você acertou ' + pontos + ' de 6 perguntas! 💖';
+    buscar('novamente').hidden = false;
+  }
+
+  buscar('iniciar').addEventListener('click', iniciar);
+  buscar('novamente').addEventListener('click', iniciar);
+})();
+</script>
+
+<!-- FIM DO JOGO -->
+
 </script>
 
 </body>
