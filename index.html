@@ -1,372 +1,75 @@
 
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chiquititas 💗 Um Mundo de Sonhos</title>
-
+<title>Chiquititas 💗</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap');
-
-:root {
-  --rosa: #ff78ad;
-  --rosa-claro: #ffe3ef;
-  --lilas: #d9c6ff;
-  --roxo: #8563bd;
-  --creme: #fffaf5;
-  --texto: #59465f;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: 'Quicksand', sans-serif;
-  color: var(--texto);
-  background: var(--creme);
-}
-
-header {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background: rgba(255,250,245,.94);
-  backdrop-filter: blur(12px);
-  padding: 16px 7%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 3px 18px #c99cb522;
-}
-
-.logo {
-  font: 700 26px 'Fredoka', sans-serif;
-  color: var(--rosa);
-}
-
-nav {
-  display: flex;
-  gap: 20px;
-}
-
-nav a {
-  color: var(--texto);
-  text-decoration: none;
-  font-weight: 700;
-}
-
-nav a:hover { color: var(--rosa); }
-
-.hero {
-  min-height: 85vh;
-  padding: 70px 8%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 35px;
-  flex-wrap: wrap;
-  background:
-    radial-gradient(circle at 85% 20%, #ffffffa8 0 7%, transparent 8%),
-    linear-gradient(135deg, #ffe2ed, #eee4ff 65%, #fff2d9);
-  overflow: hidden;
-}
-
-.hero-text {
-  flex: 1 1 320px;
-}
-
-.etiqueta {
-  display: inline-block;
-  background: white;
-  padding: 9px 17px;
-  border-radius: 30px;
-  color: var(--roxo);
-  font-weight: 700;
-  margin-bottom: 20px;
-}
-
-h1 {
-  font: 700 clamp(42px, 6vw, 76px) 'Fredoka', sans-serif;
-  line-height: 1.08;
-  color: #a65493;
-  margin-bottom: 20px;
-}
-
-.hero p {
-  font-size: 18px;
-  line-height: 1.8;
-  max-width: 520px;
-}
-
-.botao {
-  display: inline-block;
-  margin-top: 25px;
-  padding: 15px 25px;
-  border-radius: 30px;
-  background: var(--rosa);
-  color: white;
-  text-decoration: none;
-  font-weight: 700;
-  border: none;
-  cursor: pointer;
-  transition: .25s;
-  box-shadow: 0 8px 18px #ff78ad44;
-}
-
-.botao:hover {
-  transform: translateY(-4px);
-  background: #ee5594;
-}
-
-.ilustracao {
-  flex: 1 1 270px;
-  max-width: 430px;
-  margin: auto;
-  text-align: center;
-  padding: 45px 20px;
-  border-radius: 48% 48% 35% 35%;
-  background: #ffffff88;
-  border: 3px solid white;
-  box-shadow: 0 15px 50px #b993cc30;
-}
-
-.casinha {
-  font-size: clamp(90px, 15vw, 155px);
-  animation: flutuar 3s ease-in-out infinite;
-}
-
-.ilustracao h2 {
-  font: 600 26px 'Fredoka', sans-serif;
-  color: var(--roxo);
-  margin-top: 10px;
-}
-
-.ilustracao p { margin-top: 8px; }
-
-@keyframes flutuar {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
-}
-
-section {
-  padding: 75px 8%;
-}
-
-.titulo {
-  text-align: center;
-  font: 700 clamp(30px, 4vw, 43px) 'Fredoka', sans-serif;
-  color: #a65493;
-  margin-bottom: 12px;
-}
-
-.subtitulo {
-  text-align: center;
-  line-height: 1.7;
-  max-width: 650px;
-  margin: 0 auto 38px;
-}
-
-.historia {
-  background: white;
-}
-
-.linha-tempo {
-  max-width: 800px;
-  margin: auto;
-  border-left: 3px dashed #e9b4d8;
-  padding-left: 28px;
-}
-
-.evento {
-  position: relative;
-  background: #fff5fa;
-  padding: 23px;
-  margin-bottom: 22px;
-  border-radius: 18px;
-  transition: .25s;
-}
-
-.evento:hover {
-  transform: translateX(7px);
-  box-shadow: 0 8px 25px #dba6c522;
-}
-
-.evento::before {
-  content: "💗";
-  position: absolute;
-  left: -43px;
-  top: 20px;
-  font-size: 20px;
-}
-
-.evento h3 {
-  font: 600 22px 'Fredoka', sans-serif;
-  color: var(--roxo);
-  margin-bottom: 8px;
-}
-
-.evento p { line-height: 1.8; }
-
-.personagens {
-  background: linear-gradient(180deg, #fffaf5, #fff0f7);
-}
-
-.grade {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-  gap: 22px;
-}
-
-.personagem {
-  border: 2px solid white;
-  background: white;
-  padding: 27px 18px;
-  border-radius: 25px;
-  text-align: center;
-  cursor: pointer;
-  box-shadow: 0 8px 25px #d5a7c21b;
-  transition: .3s;
-}
-
-.personagem:hover {
-  transform: translateY(-8px) rotate(-1deg);
-  box-shadow: 0 15px 30px #d5a7c244;
-}
-
-.avatar {
-  width: 95px;
-  height: 95px;
-  border-radius: 50%;
-  margin: 0 auto 15px;
-  display: grid;
-  place-items: center;
-  font-size: 47px;
-  background: var(--rosa-claro);
-}
-
-.personagem:nth-child(2n) .avatar { background: #eee4ff; }
-.personagem:nth-child(3n) .avatar { background: #fff0c9; }
-
-.personagem h3 {
-  font: 600 23px 'Fredoka', sans-serif;
-  color: #a65493;
-  margin-bottom: 8px;
-}
-
-.personagem p {
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-.dica {
-  margin-top: 30px;
-  text-align: center;
-  color: var(--roxo);
-  font-weight: 700;
-}
-
-.curiosidades {
-  background: white;
-}
-
-.curiosidade {
-  padding: 25px;
-  border-radius: 20px;
-  background: #f5efff;
-}
-
-.curiosidade:nth-child(2n) { background: #fff0f6; }
-
-.curiosidade span {
-  font-size: 32px;
-}
-
-.curiosidade h3 {
-  font: 600 21px 'Fredoka', sans-serif;
-  margin: 12px 0 8px;
-  color: var(--roxo);
-}
-
-.curiosidade p { line-height: 1.7; }
-
-.musica {
-  text-align: center;
-  background: linear-gradient(135deg, #e9ddff, #ffe2ee);
-}
-
-.musica .nota {
-  font-size: 65px;
-  margin-bottom: 15px;
-}
-
-.musica p {
-  max-width: 600px;
-  margin: auto;
-  line-height: 1.8;
-}
-
-footer {
-  background: #73558f;
-  color: white;
-  text-align: center;
-  padding: 28px 15px;
-  line-height: 1.9;
-}
-
-footer strong {
-  font: 600 24px 'Fredoka', sans-serif;
-}
-
-dialog {
-  margin: auto;
-  width: min(90%, 430px);
-  border: none;
-  border-radius: 25px;
-  padding: 30px;
-  text-align: center;
-  color: var(--texto);
-  box-shadow: 0 20px 80px #3b214455;
-}
-
-dialog::backdrop { background: #3b214477; }
-
-#modal-emoji { font-size: 60px; }
-
-dialog h2 {
-  font: 700 30px 'Fredoka', sans-serif;
-  color: #a65493;
-  margin: 10px;
-}
-
-dialog p { line-height: 1.8; }
-
-.fechar {
-  margin-top: 18px;
-  padding: 12px 24px;
-  border: none;
-  background: var(--rosa);
-  color: white;
-  border-radius: 25px;
-  cursor: pointer;
-  font-weight: 700;
-}
-
-@media (max-width: 650px) {
-  header { flex-direction: column; gap: 12px; }
-  nav { gap: 13px; flex-wrap: wrap; justify-content: center; }
-  nav a { font-size: 13px; }
-  .hero { text-align: center; padding: 55px 7%; }
-  .hero p { margin: auto; }
-  section { padding: 55px 7%; }
-}
+:root{--rosa:#ff78ad;--lilas:#eee4ff;--roxo:#8563bd;--texto:#59465f;--creme:#fffaf5}
+*{box-sizing:border-box;margin:0;padding:0;scroll-behavior:smooth}
+body{font-family:Quicksand,sans-serif;color:var(--texto);background:var(--creme)}
+header{position:sticky;top:0;z-index:5;background:#fffaf5f2;padding:16px 6%;display:flex;align-items:center;justify-content:space-between;gap:15px;box-shadow:0 3px 18px #c99cb522}
+.logo{font:700 27px Fredoka;color:#d84f94}
+nav{display:flex;flex-wrap:wrap;gap:15px}
+nav a{color:var(--texto);text-decoration:none;font-weight:700}
+nav a:hover{color:#d84f94}
+.hero{padding:65px 8%;min-height:75vh;display:flex;align-items:center;justify-content:space-between;gap:35px;flex-wrap:wrap;background:linear-gradient(135deg,#ffe2ed,#eee4ff 65%,#fff2d9)}
+.hero-text{flex:1 1 300px}
+.etiqueta{background:white;padding:9px 15px;border-radius:25px;color:var(--roxo);display:inline-block;margin-bottom:18px;font-weight:bold}
+h1{font:700 clamp(40px,6vw,70px)/1.1 Fredoka;color:#a65493;margin-bottom:18px}
+p{line-height:1.8}
+.hero p{font-size:18px}
+.foto-principal{flex:1 1 300px;max-width:480px}
+.foto-principal img{width:100%;height:340px;object-fit:cover;border:7px solid white;border-radius:35px;box-shadow:0 15px 35px #b993cc44}
+.botao{display:inline-block;border:0;border-radius:30px;background:var(--rosa);color:white;padding:13px 22px;margin-top:18px;font:700 15px Quicksand;cursor:pointer;text-decoration:none}
+.botao:hover{background:#e85094;transform:translateY(-2px)}
+section{padding:65px 8%}
+.titulo{text-align:center;font:700 clamp(29px,4vw,42px) Fredoka;color:#a65493;margin-bottom:12px}
+.subtitulo{text-align:center;max-width:700px;margin:0 auto 35px}
+.historia{background:white}
+.linha{max-width:850px;margin:auto}
+.evento{background:#fff1f8;padding:22px;margin:15px 0;border-radius:18px;border-left:5px solid var(--rosa)}
+.evento h3{font:600 23px Fredoka;color:var(--roxo);margin-bottom:7px}
+.personagens{background:linear-gradient(#fffaf5,#fff0f7)}
+.grade{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:20px}
+.personagem{background:white;padding:14px;border-radius:22px;text-align:center;box-shadow:0 8px 25px #d5a7c222;cursor:pointer;transition:.25s}
+.personagem:hover{transform:translateY(-5px)}
+.personagem img{width:100%;height:180px;object-fit:cover;border-radius:15px}
+.personagem h3{font:600 23px Fredoka;color:#a65493;margin:10px}
+.personagem p{font-size:14px}
+.curiosidades{background:white}
+.curio{background:#f5efff;border-radius:20px;padding:22px}
+.curio:nth-child(even){background:#fff0f6}
+.curio h3{font:600 22px Fredoka;color:var(--roxo);margin:10px 0}
+.galeria{background:linear-gradient(135deg,#fff0f7,#f2eaff)}
+.galeria img{width:100%;height:220px;object-fit:cover;border-radius:18px}
+.jogos{background:white}
+.caixa-jogo{max-width:700px;margin:25px auto;padding:25px;background:linear-gradient(135deg,#fff7fb,#f6f0ff);border-radius:25px;text-align:center;box-shadow:0 10px 30px #b993cc30}
+.caixa-jogo h3{font:600 27px Fredoka;color:#a65493;margin-bottom:10px}
+.pergunta{font:600 22px Fredoka;color:#a65493;margin:20px 0}
+.opcoes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.opcoes button,.carta{border:2px solid #e8d8f5;border-radius:14px;background:white;padding:13px;font:700 15px Quicksand;color:var(--texto);cursor:pointer}
+.opcoes button:hover,.carta:hover{background:#ffe3ef}
+.opcoes .certa{background:#dff7e5}
+.opcoes .errada{background:#ffe1e5}
+.feedback{margin-top:15px;font-weight:bold;min-height:28px}
+.memoria{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;max-width:430px;margin:20px auto}
+.carta{font-size:30px;min-height:70px;padding:8px}
+.carta.aberta,.carta.par{background:#ffe3ef}
+.carta.par{opacity:.7}
+.musica{text-align:center;background:linear-gradient(135deg,#e9ddff,#ffe2ee)}
+footer{background:#73558f;color:white;text-align:center;padding:28px;line-height:1.9}
+dialog{margin:auto;width:min(90%,430px);padding:28px;border:0;border-radius:22px;text-align:center;color:var(--texto)}
+dialog::backdrop{background:#3b214477}
+dialog h2{font:700 28px Fredoka;color:#a65493;margin:10px}
+dialog p{margin-bottom:10px}
+[hidden]{display:none!important}
+@media(max-width:650px){header{flex-direction:column}nav{justify-content:center;gap:10px}nav a{font-size:13px}.hero{text-align:center;padding:45px 7%}.foto-principal img{height:260px}section{padding:48px 6%}.opcoes{grid-template-columns:1fr}.carta{font-size:25px;min-height:60px}}
 </style>
 </head>
-
 <body>
 
 <header>
@@ -375,7 +78,8 @@ dialog p { line-height: 1.8; }
     <a href="#inicio">Início</a>
     <a href="#historia">História</a>
     <a href="#personagens">Personagens</a>
-    <a href="#curiosidades">Curiosidades</a>
+    <a href="#galeria">Galeria</a>
+    <a href="#jogos">Jogos</a>
   </nav>
 </header>
 
@@ -384,167 +88,127 @@ dialog p { line-height: 1.8; }
   <div class="hero-text">
     <span class="etiqueta">🌸 Um clássico cheio de amor</span>
     <h1>Um mundo de sonhos e amizade!</h1>
-    <p>
-      Entre músicas, aventuras e muitas emoções, conheça o universo
-      de Chiquititas, uma história sobre amizade, esperança, família
-      e o poder de nunca deixar de sonhar.
-    </p>
-    <a href="#historia" class="botao">✨ Conheça essa história</a>
+    <p>Bem-vindo ao universo de Chiquititas! Conheça os personagens, relembre a história do Orfanato Raio de Luz e divirta-se com jogos inspirados na novela.</p>
+    <a class="botao" href="#personagens">Conhecer personagens 💗</a>
   </div>
-
-  <div class="ilustracao">
-    <div class="casinha">🏡</div>
-    <h2>Orfanato Raio de Luz</h2>
-    <p>Onde cada coração encontra um lar. 💕</p>
-    <div style="font-size:27px;margin-top:15px">🌷 ⭐ 🦋 🌷</div>
+  <div class="foto-principal">
+    <img src="https://static.sbt.com.br/media/playlist/20130510161923/20130510162011/tn/20200616142026.jpeg?v=26" alt="Chiquititas, novela do SBT">
   </div>
 </section>
 
 <section class="historia" id="historia">
   <h2 class="titulo">📖 A história de Chiquititas</h2>
-  <p class="subtitulo">
-    Uma jornada de amizade, descobertas e muita emoção que marcou gerações.
-  </p>
-
-  <div class="linha-tempo">
+  <p class="subtitulo">Uma história cheia de amizade, segredos, música, emoção e esperança.</p>
+  <div class="linha">
     <article class="evento">
-      <h3>🏡 Um lar especial</h3>
-      <p>
-        No orfanato Raio de Luz, crianças com diferentes histórias
-        aprendem a conviver, dividir sonhos e construir laços de amizade.
-      </p>
+      <h3>🏡 Orfanato Raio de Luz</h3>
+      <p>O orfanato é o lar de crianças com histórias diferentes, que aprendem a conviver, enfrentar dificuldades e construir uma família unida pelo carinho.</p>
     </article>
-
     <article class="evento">
-      <h3>💞 Amizades inesquecíveis</h3>
-      <p>
-        Mili e seus amigos enfrentam desafios, descobrem novas forças
-        e percebem que juntos podem superar momentos difíceis.
-      </p>
+      <h3>💗 Mili e seus amigos</h3>
+      <p>Mili, Pata, Bia, Cris, Vivi, Tati e os outros amigos vivem aventuras, descobertas e desafios enquanto aprendem o valor da amizade.</p>
     </article>
-
     <article class="evento">
-      <h3>🎶 Música e alegria</h3>
-      <p>
-        As canções, brincadeiras e apresentações fazem parte do cotidiano
-        das crianças e ajudam a expressar seus sentimentos.
-      </p>
+      <h3>🔎 Segredos de família</h3>
+      <p>A trama também apresenta mistérios do passado, incluindo a história de Gabriela, Miguel e os acontecimentos envolvendo a família Almeida Campos.</p>
     </article>
-
     <article class="evento">
-      <h3>🌈 Nunca deixar de sonhar</h3>
-      <p>
-        A história mostra a importância do carinho, da solidariedade,
-        da esperança e de acreditar em um futuro melhor.
-      </p>
+      <h3>🎶 Música e união</h3>
+      <p>As músicas e brincadeiras são parte marcante da novela e ajudam os personagens a expressar seus sentimentos.</p>
     </article>
   </div>
 </section>
 
 <section class="personagens" id="personagens">
-  <h2 class="titulo">💖 Nossos personagens</h2>
-  <p class="subtitulo">
-    Clique em cada personagem para descobrir um pouquinho mais!
-  </p>
-
+  <h2 class="titulo">💖 Conheça os personagens</h2>
+  <p class="subtitulo">Clique nos cartões para descobrir mais sobre os personagens de Chiquititas!</p>
   <div class="grade">
-    <article class="personagem" tabindex="0"
-      role="button" data-nome="Mili" data-emoji="🌷"
-      data-info="Mili é uma das personagens centrais da história. Carinhosa, sensível e sonhadora, ela valoriza a amizade e está sempre aprendendo com as experiências da vida.">
-      <div class="avatar">🌷</div>
-      <h3>Mili</h3>
-      <p>Doce, inteligente e cheia de esperança.</p>
+    <article class="personagem" tabindex="0" data-nome="Mili" data-info="Mili é carinhosa, inteligente e sonhadora. Ela é muito ligada aos amigos e deseja descobrir mais sobre sua família.">
+      <img src="https://static.sbt.com.br/media/playlist/20130510161923/20130510162220/tn/20160908202014.jpg" alt="Personagem Mili" loading="lazy">
+      <h3>Mili 🌷</h3><p>Doce, inteligente e sonhadora.</p>
     </article>
-
-    <article class="personagem" tabindex="0"
-      role="button" data-nome="Bia" data-emoji="🌟"
-      data-info="Bia tem uma personalidade forte e marcante. Ao longo da história, suas relações com os amigos mostram que todos podem amadurecer e aprender.">
-      <div class="avatar">🌟</div>
-      <h3>Bia</h3>
-      <p>Corajosa, determinada e marcante.</p>
+    <article class="personagem" tabindex="0" data-nome="Pata" data-info="Pata é forte, corajosa e tem uma personalidade marcante. Ao longo da história, cria laços importantes com os amigos.">
+      <img src="https://static.sbt.com.br/media/playlist/20130510161923/20130510162220/tn/20160908201912.jpg" alt="Personagem Pata" loading="lazy">
+      <h3>Pata 🦋</h3><p>Corajosa e determinada.</p>
     </article>
-
-    <article class="personagem" tabindex="0"
-      role="button" data-nome="Tati" data-emoji="🦋"
-      data-info="Tati é uma menina que conquista as pessoas com sua espontaneidade. Sua presença acrescenta ternura e momentos especiais à convivência no orfanato.">
-      <div class="avatar">🦋</div>
-      <h3>Tati</h3>
-      <p>Espontânea, divertida e carinhosa.</p>
+    <article class="personagem" tabindex="0" data-nome="Bia" data-info="Bia tem personalidade forte e vive situações que a ajudam a aprender sobre confiança, amizade e convivência.">
+      <img src="https://static.sbt.com.br/media/playlist/20130510161923/20130510162220/tn/20160908201822.jpg" alt="Personagem Bia" loading="lazy">
+      <h3>Bia ⭐</h3><p>Cheia de personalidade.</p>
     </article>
-
-    <article class="personagem" tabindex="0"
-      role="button" data-nome="Vivi" data-emoji="🌸"
-      data-info="Vivi é ligada à moda e à beleza, mas também vive experiências que mostram a importância da amizade, do respeito e da confiança.">
-      <div class="avatar">🌸</div>
-      <h3>Vivi</h3>
-      <p>Vaidosa, alegre e cheia de estilo.</p>
+    <article class="personagem" tabindex="0" data-nome="Cris" data-info="Cris faz parte do grupo de amigas do Raio de Luz e vive momentos de amizade, descobertas e diversão.">
+      <img src="https://static.sbt.com.br/media/playlist/20130510161923/20130510162220/tn/20160908201722.jpg" alt="Personagem Cris" loading="lazy">
+      <h3>Cris 🌈</h3><p>Amiga e divertida.</p>
     </article>
-
-    <article class="personagem" tabindex="0"
-      role="button" data-nome="Chico" data-emoji="🍰"
-      data-info="Chico faz parte do universo acolhedor do Raio de Luz. Sua presença ajuda a criar momentos de cuidado, afeto e convivência entre as crianças.">
-      <div class="avatar">🍰</div>
-      <h3>Chico</h3>
-      <p>Amigo e parte da família do orfanato.</p>
+    <article class="personagem" tabindex="0" data-nome="Vivi" data-info="Vivi gosta de moda e beleza e também aprende bastante sobre amizade, respeito e confiança.">
+      <img src="https://static.sbt.com.br/media/playlist/20130510161923/20130510162220/tn/20160908201628.jpg" alt="Personagem Vivi" loading="lazy">
+      <h3>Vivi 🌸</h3><p>Estilosa e alegre.</p>
     </article>
-
-    <article class="personagem" tabindex="0"
-      role="button" data-nome="Carol" data-emoji="💐"
-      data-info="Carol é uma figura importante na vida das crianças, oferecendo apoio, cuidado e carinho. Ela representa o valor de acolher e proteger quem precisa.">
-      <div class="avatar">💐</div>
-      <h3>Carol</h3>
-      <p>Amorosa, protetora e acolhedora.</p>
+    <article class="personagem" tabindex="0" data-nome="Tati" data-info="Tati é uma das crianças do universo de Chiquititas e participa de momentos carinhosos e divertidos com os amigos.">
+      <img src="https://static.sbt.com.br/media/playlist/20130510161923/20130510162220/tn/20160908201531.jpg" alt="Personagem Tati" loading="lazy">
+      <h3>Tati 💕</h3><p>Carinhosa e espontânea.</p>
+    </article>
+    <article class="personagem" tabindex="0" data-nome="Mosca" data-info="Mosca é um dos garotos marcantes da novela. É esperto, corajoso e participa de várias aventuras com os amigos.">
+      <img src="https://static.sbt.com.br/media/playlist/20130510161923/20130510162220/tn/20160908201412.jpg" alt="Personagem Mosca" loading="lazy">
+      <h3>Mosca 🧢</h3><p>Esperto e aventureiro.</p>
+    </article>
+    <article class="personagem" tabindex="0" data-nome="Carol" data-info="Carol representa o cuidado e o acolhimento na vida das crianças, oferecendo apoio e carinho nos momentos importantes.">
+      <img src="https://static.sbt.com.br/media/playlist/20130510161923/20130510162220/tn/20160908200612.jpg" alt="Personagem Carol" loading="lazy">
+      <h3>Carol 💐</h3><p>Amorosa e acolhedora.</p>
     </article>
   </div>
-
-  <p class="dica">💌 Dica: clique nos cartões para abrir as informações!</p>
+  <p class="subtitulo" style="margin-top:25px">As imagens dependem da disponibilidade dos links externos.</p>
 </section>
 
-<section class="curiosidades" id="curiosidades">
-  <h2 class="titulo">✨ Por que amamos Chiquititas?</h2>
-  <p class="subtitulo">
-    Muito mais do que uma novela, uma história cheia de mensagens especiais.
-  </p>
-
+<section class="galeria" id="galeria">
+  <h2 class="titulo">📸 Galeria de Chiquititas</h2>
+  <p class="subtitulo">Momentos e personagens que fazem parte do universo da novela.</p>
   <div class="grade">
-    <article class="curiosidade">
-      <span>🤝</span>
-      <h3>Amizade verdadeira</h3>
-      <p>Os amigos mostram como o companheirismo pode ajudar nos momentos difíceis.</p>
-    </article>
+    <img src="https://static.sbt.com.br/media/playlist/20130510161923/20130510162011/tn/20200616142026.jpeg?v=26" alt="Imagem de Chiquititas" loading="lazy">
+    <img src="https://static.sbt.com.br/media/playlist/20130510161923/20130510162220/tn/20160908201216.jpg" alt="Personagens de Chiquititas" loading="lazy">
+    <img src="https://static.sbt.com.br/media/playlist/20130510161923/20130510162220/tn/20160908201124.jpg" alt="Elenco de Chiquititas" loading="lazy">
+  </div>
+</section>
 
-    <article class="curiosidade">
-      <span>🎵</span>
-      <h3>Músicas marcantes</h3>
-      <p>As canções são uma parte inesquecível do universo da novela.</p>
-    </article>
+<section class="curiosidades">
+  <h2 class="titulo">✨ O que faz Chiquititas especial?</h2>
+  <p class="subtitulo">A novela reúne mensagens que continuam encantando os fãs.</p>
+  <div class="grade">
+    <article class="curio"><span>🤝</span><h3>Amizade</h3><p>Os amigos mostram que é possível superar desafios juntos.</p></article>
+    <article class="curio"><span>🎵</span><h3>Músicas</h3><p>As canções são uma parte marcante da identidade da novela.</p></article>
+    <article class="curio"><span>🏡</span><h3>Família</h3><p>O Raio de Luz mostra como carinho e acolhimento podem unir pessoas.</p></article>
+    <article class="curio"><span>🌈</span><h3>Esperança</h3><p>Mesmo diante das dificuldades, os personagens continuam sonhando.</p></article>
+  </div>
+</section>
 
-    <article class="curiosidade">
-      <span>💗</span>
-      <h3>Amor e acolhimento</h3>
-      <p>A história destaca a importância de cuidar uns dos outros.</p>
-    </article>
+<section class="jogos" id="jogos">
+  <h2 class="titulo">🎮 Jogos de Chiquititas</h2>
+  <p class="subtitulo">Teste seus conhecimentos e divirta-se!</p>
 
-    <article class="curiosidade">
-      <span>🌈</span>
-      <h3>Esperança</h3>
-      <p>Mesmo diante dos desafios, os personagens continuam acreditando em dias melhores.</p>
-    </article>
+  <div class="caixa-jogo">
+    <h3>🌟 Quiz do Raio de Luz</h3>
+    <p>Responda às perguntas sobre a novela e some pontos.</p>
+    <p class="feedback">Pontos: <span id="pontos">0</span> | Pergunta <span id="numero">0</span>/6</p>
+    <div class="pergunta" id="pergunta">Você conhece Chiquititas?</div>
+    <div class="opcoes" id="opcoes"></div>
+    <p class="feedback" id="feedback">Clique em começar para jogar! 💗</p>
+    <button class="botao" id="comecar">🎀 Começar quiz</button>
+    <button class="botao" id="novamente" hidden>🔄 Jogar novamente</button>
+  </div>
+
+  <div class="caixa-jogo">
+    <h3>🧠 Memória do Raio de Luz</h3>
+    <p>Encontre os seis pares de símbolos!</p>
+    <p class="feedback">Jogadas: <span id="jogadas">0</span> | Pares: <span id="pares">0</span>/6</p>
+    <div class="memoria" id="memoria"></div>
+    <p class="feedback" id="memoria-feedback">Encontre os pares iguais!</p>
+    <button class="botao" id="reiniciar">🔄 Embaralhar cartas</button>
   </div>
 </section>
 
 <section class="musica">
-  <div class="nota">🎶</div>
-  <h2 class="titulo">A magia da música</h2>
-  <p>
-    As músicas fazem parte da identidade de Chiquititas e trazem
-    lembranças, alegria e emoção para os fãs.
-  </p>
-  <a class="botao"
-     href="https://www.youtube.com/results?search_query=Chiquititas+trilha+sonora"
-     target="_blank" rel="noopener noreferrer">
-    ▶ Explorar as músicas
-  </a>
+  <h2 class="titulo">🎶 Música e emoção</h2>
+  <p>As canções fazem parte das lembranças dos fãs de Chiquititas. Explore músicas e apresentações da novela.</p>
+  <a class="botao" href="https://www.youtube.com/results?search_query=Chiquititas+trilha+sonora" target="_blank" rel="noopener noreferrer">▶ Ouvir músicas</a>
 </section>
 </main>
 
@@ -555,300 +219,116 @@ dialog p { line-height: 1.8; }
 </footer>
 
 <dialog id="modal">
-  <div id="modal-emoji">🌷</div>
-  <h2 id="modal-titulo">Personagem</h2>
+  <h2 id="modal-titulo"></h2>
   <p id="modal-texto"></p>
-  <button class="fechar" id="fechar-modal">Fechar 💗</button>
+  <button class="botao" id="fechar">Fechar 💗</button>
 </dialog>
 
 <script>
-const modal = document.getElementById('modal');
-const titulo = document.getElementById('modal-titulo');
-const texto = document.getElementById('modal-texto');
-const emoji = document.getElementById('modal-emoji');
-
-function abrirPersonagem(cartao) {
-  titulo.textContent = cartao.dataset.nome;
-  texto.textContent = cartao.dataset.info;
-  emoji.textContent = cartao.dataset.emoji;
-  modal.showModal();
-}
-
-document.querySelectorAll('.personagem').forEach(cartao => {
-  cartao.addEventListener('click', () => abrirPersonagem(cartao));
-
-  cartao.addEventListener('keydown', evento => {
-    if (evento.key === 'Enter' || evento.key === ' ') {
-      evento.preventDefault();
-      abrirPersonagem(cartao);
-    }
-  });
+// JANELA DOS PERSONAGENS
+const modal=document.getElementById('modal');
+document.querySelectorAll('.personagem').forEach(card=>{
+  function abrir(){
+    document.getElementById('modal-titulo').textContent=card.dataset.nome;
+    document.getElementById('modal-texto').textContent=card.dataset.info;
+    if(modal.showModal)modal.showModal();
+    else alert(card.dataset.nome+'\n'+card.dataset.info);
+  }
+  card.addEventListener('click',abrir);
+  card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();abrir();}});
 });
+document.getElementById('fechar').addEventListener('click',()=>modal.close());
+modal.addEventListener('click',e=>{if(e.target===modal)modal.close();});
 
-document.getElementById('fechar-modal').addEventListener('click', () => {
-  modal.close();
+// QUIZ DE CHIQUITITAS
+(()=>{
+const perguntas=[
+{p:'Como se chama o orfanato?',o:['Raio de Luz','Casa das Estrelas','Lar das Flores','Mundo Encantado'],c:0},
+{p:'Qual personagem é doce e sonhadora?',o:['Bia','Mili','Vivi','Tati'],c:1},
+{p:'Qual destes é um tema importante da novela?',o:['Corridas','Viagens espaciais','Amizade','Competição'],c:2},
+{p:'Qual personagem gosta de moda e beleza?',o:['Vivi','Chico','Rafa','Mosca'],c:0},
+{p:'Quem faz parte do grupo de amigos do orfanato?',o:['Mosca','Super-Homem','Peter Pan','Batman'],c:0},
+{p:'O que as crianças aprendem juntas?',o:['A desistir','A não confiar','A superar desafios','A evitar amigos'],c:2}
+];
+const $=id=>document.getElementById(id);
+let ordem=[],atual=0,pontos=0,respondeu=false;
+function iniciar(){
+ordem=perguntas.map((_,i)=>i).sort(()=>Math.random()-.5);
+atual=0;pontos=0;$('pontos').textContent=0;
+$('comecar').hidden=true;$('novamente').hidden=true;mostrar();
+}
+function mostrar(){
+respondeu=false;let q=perguntas[ordem[atual]];
+$('numero').textContent=atual+1;$('pergunta').textContent=q.p;
+$('feedback').textContent='Escolha uma resposta! 💕';$('opcoes').replaceChildren();
+q.o.forEach((op,i)=>{
+let b=document.createElement('button');b.textContent=op;
+b.addEventListener('click',()=>responder(i,b));$('opcoes').appendChild(b);
 });
-
-modal.addEventListener('click', evento => {
-  if (evento.target === modal) modal.close();
+}
+function responder(escolha,clicado){
+if(respondeu)return;respondeu=true;
+let q=perguntas[ordem[atual]];
+[...$('opcoes').querySelectorAll('button')].forEach((b,i)=>{
+b.disabled=true;if(i===q.c)b.classList.add('certa');
 });
-  
-<!-- JOGO CHIQUITITAS: cole tudo antes de </body> -->
-
-<style>
-.jogo-raio {
-  padding: 60px 7%;
-  text-align: center;
-  background: linear-gradient(135deg, #ffe3ef, #eee4ff, #fff2d9);
-  color: #59465f;
-  font-family: 'Quicksand', sans-serif;
+if(escolha===q.c){pontos++;$('pontos').textContent=pontos;$('feedback').textContent='🎉 Acertou! Muito bem!';}
+else{clicado.classList.add('errada');$('feedback').textContent='💗 A resposta certa era: '+q.o[q.c];}
+let prox=document.createElement('button');prox.className='botao';
+prox.textContent=atual===perguntas.length-1?'🏆 Ver resultado':'Próxima pergunta ➜';
+prox.addEventListener('click',()=>{atual++;if(atual<perguntas.length)mostrar();else finalizar();});
+$('opcoes').appendChild(prox);
 }
-.jogo-raio * { box-sizing: border-box; }
-.jogo-raio h2 {
-  font-family: 'Fredoka', sans-serif;
-  font-size: clamp(28px, 4vw, 42px);
-  color: #a65493;
-  margin-bottom: 12px;
+function finalizar(){
+$('numero').textContent=6;
+$('pergunta').textContent=pontos===6?'🏆 Fã de carteirinha!':pontos>=4?'🌟 Você arrasou!':'🌈 Tente novamente!';
+$('opcoes').replaceChildren();$('feedback').textContent='Você acertou '+pontos+' de 6 perguntas!';
+$('novamente').hidden=false;
 }
-.jogo-raio .jogo-caixa {
-  max-width: 650px;
-  margin: 30px auto 0;
-  padding: 28px;
-  background: white;
-  border: 3px solid #fff;
-  border-radius: 25px;
-  box-shadow: 0 12px 35px #b993cc30;
+$('comecar').addEventListener('click',iniciar);
+$('novamente').addEventListener('click',iniciar);
+})();
+
+// JOGO DA MEMÓRIA
+(()=>{
+const simbolos=['🌷','🎀','⭐','🦋','💖','🌈'];
+const grade=document.getElementById('memoria');
+let primeira=null,bloqueado=false,jogadas=0,pares=0,tempo;
+function iniciar(){
+if(tempo)clearTimeout(tempo);
+primeira=null;bloqueado=false;jogadas=0;pares=0;
+document.getElementById('jogadas').textContent='0';
+document.getElementById('pares').textContent='0';
+document.getElementById('memoria-feedback').textContent='Encontre os pares iguais!';
+grade.replaceChildren();
+[...simbolos,...simbolos].sort(()=>Math.random()-.5).forEach(simbolo=>{
+let b=document.createElement('button');b.className='carta';b.textContent='❔';b.dataset.simbolo=simbolo;
+b.addEventListener('click',()=>virar(b));grade.appendChild(b);
+});
 }
-.jogo-raio .jogo-pontos {
-  color: #8563bd;
-  font-weight: bold;
-  margin-bottom: 22px;
+function virar(carta){
+if(bloqueado||carta.classList.contains('aberta')||carta.classList.contains('par'))return;
+carta.textContent=carta.dataset.simbolo;carta.classList.add('aberta');
+if(!primeira){primeira=carta;return;}
+jogadas++;document.getElementById('jogadas').textContent=jogadas;
+if(primeira.dataset.simbolo===carta.dataset.simbolo){
+primeira.classList.remove('aberta');carta.classList.remove('aberta');
+primeira.classList.add('par');carta.classList.add('par');
+primeira.disabled=true;carta.disabled=true;primeira=null;pares++;
+document.getElementById('pares').textContent=pares;
+document.getElementById('memoria-feedback').textContent=pares===6?'🏆 Você encontrou todos os pares!':'✨ Par encontrado! Continue!';
+}else{
+bloqueado=true;let anterior=primeira;primeira=null;
+tempo=setTimeout(()=>{
+anterior.textContent='❔';carta.textContent='❔';
+anterior.classList.remove('aberta');carta.classList.remove('aberta');
+bloqueado=false;
+},850);
 }
-.jogo-raio .jogo-pergunta {
-  font-family: 'Fredoka', sans-serif;
-  font-size: 23px;
-  color: #a65493;
-  margin: 20px 0;
 }
-.jogo-raio .jogo-opcoes {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-}
-.jogo-raio button {
-  font-family: inherit;
-  font-size: 15px;
-  font-weight: bold;
-  cursor: pointer;
-  border: 2px solid #e8d8f5;
-  border-radius: 15px;
-  padding: 13px;
-  background: #fff7fb;
-  color: #59465f;
-  transition: .2s;
-}
-.jogo-raio button:hover:not(:disabled) {
-  background: #ffe3ef;
-  transform: translateY(-2px);
-  border-color: #ff78ad;
-}
-.jogo-raio button:disabled { cursor: default; }
-.jogo-raio button.jogo-certa {
-  background: #dff7e5;
-  border-color: #65b87b;
-}
-.jogo-raio button.jogo-errada {
-  background: #ffe1e5;
-  border-color: #e77c8a;
-}
-.jogo-raio .jogo-principal {
-  background: #ff78ad;
-  color: white;
-  border: none;
-  border-radius: 30px;
-  padding: 14px 25px;
-  margin-top: 20px;
-  box-shadow: 0 6px 15px #ff78ad44;
-}
-.jogo-raio .jogo-feedback {
-  min-height: 25px;
-  margin-top: 18px;
-  line-height: 1.6;
-  font-weight: bold;
-}
-.jogo-raio [hidden] { display: none !important; }
-@media(max-width: 500px) {
-  .jogo-raio .jogo-opcoes { grid-template-columns: 1fr; }
-  .jogo-raio .jogo-caixa { padding: 20px 15px; }
-}
-</style>
-
-<section class="jogo-raio" id="jogo-raio-de-luz">
-  <h2>🎮 Desafio do Raio de Luz</h2>
-  <p>💗 Teste seus conhecimentos sobre Chiquititas!</p>
-
-  <div class="jogo-caixa">
-    <div class="jogo-pontos">
-      ⭐ Pontos: <span id="jr-pontos">0</span>
-      &nbsp;|&nbsp;
-      Pergunta <span id="jr-numero">1</span>/6
-    </div>
-
-    <div id="jr-pergunta" class="jogo-pergunta">
-      Vamos brincar?
-    </div>
-
-    <div id="jr-opcoes" class="jogo-opcoes"></div>
-
-    <p id="jr-feedback" class="jogo-feedback" aria-live="polite">
-      Clique para começar sua aventura! 🌸
-    </p>
-
-    <button type="button" id="jr-iniciar" class="jogo-principal">
-      🎀 Começar jogo
-    </button>
-
-    <button type="button" id="jr-novamente"
-      class="jogo-principal" hidden>
-      🔄 Jogar novamente
-    </button>
-  </div>
-</section>
-
-<script>
-(function () {
-  const raiz = document.getElementById('jogo-raio-de-luz');
-  if (!raiz || raiz.dataset.iniciado) return;
-  raiz.dataset.iniciado = 'sim';
-
-  const perguntas = [
-    {
-      p: 'Como se chama o orfanato da história?',
-      o: ['Raio de Luz', 'Casa das Estrelas', 'Lar das Flores', 'Mundo Encantado'],
-      c: 0
-    },
-    {
-      p: 'Qual personagem é doce e sonhadora?',
-      o: ['Bia', 'Mili', 'Vivi', 'Tati'],
-      c: 1
-    },
-    {
-      p: 'O que faz parte da identidade de Chiquititas?',
-      o: ['Carros de corrida', 'Viagens espaciais', 'Músicas e brincadeiras', 'Jogos de futebol'],
-      c: 2
-    },
-    {
-      p: 'Qual valor é muito importante na história?',
-      o: ['Competição', 'Amizade', 'Vaidade', 'Rivalidade'],
-      c: 1
-    },
-    {
-      p: 'Qual personagem é ligada à moda e à beleza?',
-      o: ['Vivi', 'Chico', 'Carol', 'Mili'],
-      c: 0
-    },
-    {
-      p: 'O que os amigos aprendem a fazer juntos?',
-      o: ['Desistir', 'Brigar sempre', 'Superar dificuldades', 'Evitar amizades'],
-      c: 2
-    }
-  ];
-
-  const buscar = id => document.getElementById('jr-' + id);
-  let lista = [], atual = 0, pontos = 0, respondeu = false;
-
-  function iniciar() {
-    lista = perguntas.map((_, i) => i)
-      .sort(() => Math.random() - 0.5);
-    atual = 0;
-    pontos = 0;
-    buscar('pontos').textContent = pontos;
-    buscar('iniciar').hidden = true;
-    buscar('novamente').hidden = true;
-    mostrar();
-  }
-
-  function mostrar() {
-    respondeu = false;
-    const q = perguntas[lista[atual]];
-    buscar('numero').textContent = atual + 1;
-    buscar('pergunta').textContent = q.p;
-    buscar('feedback').textContent = 'Escolha uma resposta! 💕';
-
-    const opcoes = buscar('opcoes');
-    opcoes.replaceChildren();
-
-    q.o.forEach((texto, i) => {
-      const botao = document.createElement('button');
-      botao.type = 'button';
-      botao.textContent = texto;
-      botao.addEventListener('click', () => responder(i, botao));
-      opcoes.appendChild(botao);
-    });
-  }
-
-  function responder(escolha, clicado) {
-    if (respondeu) return;
-    respondeu = true;
-
-    const q = perguntas[lista[atual]];
-    const botoes = [...buscar('opcoes').querySelectorAll('button')];
-
-    botoes.forEach((b, i) => {
-      b.disabled = true;
-      if (i === q.c) b.classList.add('jogo-certa');
-    });
-
-    if (escolha === q.c) {
-      pontos++;
-      buscar('pontos').textContent = pontos;
-      buscar('feedback').textContent =
-        '🎉 Acertou! Você é uma estrela do Raio de Luz!';
-    } else {
-      clicado.classList.add('jogo-errada');
-      buscar('feedback').textContent =
-        '💗 A resposta certa era: ' + q.o[q.c];
-    }
-
-    const proximo = document.createElement('button');
-    proximo.type = 'button';
-    proximo.className = 'jogo-principal';
-    proximo.textContent = atual === perguntas.length - 1
-      ? '🏆 Ver resultado' : 'Próxima pergunta ➜';
-
-    proximo.addEventListener('click', () => {
-      atual++;
-      if (atual < perguntas.length) {
-        mostrar();
-      } else {
-        finalizar();
-      }
-    });
-
-    buscar('opcoes').appendChild(proximo);
-  }
-
-  function finalizar() {
-    buscar('numero').textContent = perguntas.length;
-    buscar('pergunta').textContent =
-      pontos === 6 ? '🏆 Você é fã de carteirinha!' :
-      pontos >= 4 ? '🌟 Você arrasou no desafio!' :
-      '🌈 Continue tentando!';
-
-    buscar('opcoes').replaceChildren();
-    buscar('feedback').textContent =
-      'Você acertou ' + pontos + ' de 6 perguntas! 💖';
-    buscar('novamente').hidden = false;
-  }
-
-  buscar('iniciar').addEventListener('click', iniciar);
-  buscar('novamente').addEventListener('click', iniciar);
+document.getElementById('reiniciar').addEventListener('click',iniciar);
+iniciar();
 })();
 </script>
-
-<!-- FIM DO JOGO -->
-
-</script>
-
 </body>
 </html>
